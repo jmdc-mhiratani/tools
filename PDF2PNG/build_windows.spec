@@ -44,6 +44,9 @@ a = Analysis(
     pathex=[str(project_root), src_path],
     binaries=[
         # Windows固有のバイナリ依存関係があれば追加
+        (str(project_root / 'venv/Lib/site-packages/pymupdf/_mupdf.pyd'), 'pymupdf'),
+        (str(project_root / 'venv/Lib/site-packages/pymupdf/_extra.pyd'), 'pymupdf'),
+        (str(project_root / 'venv/Lib/site-packages/pymupdf/mupdfcpp64.dll'), '.'),
     ],
     datas=[
         # 必要なデータファイルを含める
@@ -59,7 +62,7 @@ a = Analysis(
 
         # PDF処理
         'fitz',  # PyMuPDF
-        'fitz._fitz',  # PyMuPDF内部モジュール
+        # 'fitz._fitz',  # PyMuPDF内部モジュール - Manually added to binaries
 
         # 画像処理
         'PIL',
@@ -154,7 +157,7 @@ exe = EXE(
     name='PDF2PPTX_Converter',
     debug=False,  # デバッグ情報無効
     bootloader_ignore_signals=False,
-    strip=True,   # シンボル情報削除でサイズ削減
+    strip=False,   # シンボル情報削除でサイズ削減
     upx=True,     # UPX圧縮有効（インストール済みの場合）
     upx_exclude=[
         # UPX圧縮から除外するファイル
