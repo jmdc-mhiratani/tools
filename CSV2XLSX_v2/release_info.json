@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "release_date": "2025-09-23T15:18:00",
+  "release_name": "CSV2XLSX v2.0 - Enterprise Edition",
+  "description": "高性能CSV・Excel変換ツール - 完全リライト版",
+  "features": [
+    "大容量ファイル対応（100MB+）",
+    "自動エンコーディング検出",
+    "データ型推論",
+    "バッチ処理",
+    "企業級セキュリティ"
+  ],
+  "system_requirements": {
+    "os": "Windows 10+, macOS 10.14+, Ubuntu 18.04+",
+    "memory": "4GB RAM (8GB recommended)",
+    "storage": "100MB free space",
+    "python": "3.9+ (for source)"
+  },
+  "files": {
+    "portable": "CSV2XLSX_v2.0_Portable.zip",
+    "executable": "release/CSV2XLSX_v2.0.exe",
+    "installer_script": "installer.iss"
+  },
+  "file_sizes": {
+    "executable_mb": "34.8",
+    "portable_zip_mb": "34.4"
+  }
+}

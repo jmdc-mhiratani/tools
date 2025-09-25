@@ -95,12 +95,19 @@ class App(TkinterDnD.Tk):
 
         # --- Progress Bar ---
         self.progress = ttk.Progressbar(
-            main_frame, orient=tk.HORIZONTAL, length=100, mode="determinate"
+            main_frame, orient=tk.HORIZONTAL, mode="determinate"
         )
         self.progress.grid(
             row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), padx=5, pady=5
         )
         self.progress.grid_remove()  # Hide it initially
+
+        # Progress label
+        self.progress_label = ttk.Label(main_frame, text="")
+        self.progress_label.grid(
+            row=4, column=0, columnspan=2, sticky=(tk.W, tk.E), padx=5, pady=2
+        )
+        self.progress_label.grid_remove()  # Hide it initially
 
         # --- Status Bar ---
         self.status_var = tk.StringVar(value="準備完了")
@@ -140,8 +147,11 @@ class App(TkinterDnD.Tk):
 
         if state == "disabled":
             self.progress.grid()
+            self.progress_label.grid()
         else:
             self.progress.grid_remove()
+            self.progress_label.grid_remove()
+            self.progress_label.config(text="")
 
     def start_conversion_thread(self):
         self.progress["value"] = 0
@@ -151,8 +161,14 @@ class App(TkinterDnD.Tk):
         thread.start()
 
     def update_progress(self, current_step, total_steps):
+        """プログレスバーを更新し、UIを更新"""
         self.progress["maximum"] = total_steps
         self.progress["value"] = current_step
+        # プログレスラベルの更新
+        percentage = (current_step / total_steps * 100) if total_steps > 0 else 0
+        self.progress_label.config(text=f"処理中: {current_step}/{total_steps} ({percentage:.0f}%)")
+        # UIの即時更新
+        self.update_idletasks()
 
     def run_conversion(self):
         try:
@@ -209,63 +225,14 @@ class App(TkinterDnD.Tk):
 
 
 import sys
-import argparse
 
 
-def main_cli():
-    parser = argparse.ArgumentParser(description="CSV and XLSX file converter.")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-
-    # CSV to XLSX command
-    parser_c2x = subparsers.add_parser(
-        "csv2xlsx", help="Convert CSV files to an XLSX file."
-    )
-    parser_c2x.add_argument("input_files", nargs="+", help="Input CSV files.")
-    parser_c2x.add_argument("-o", "--output", required=True, help="Output XLSX file.")
-
-    # XLSX to CSV command
-    parser_x2c = subparsers.add_parser(
-        "xlsx2csv", help="Convert an XLSX file to CSV files."
-    )
-    parser_x2c.add_argument("input_file", help="Input XLSX file.")
-    parser_x2c.add_argument(
-        "-o", "--output-dir", required=True, help="Output directory for CSV files."
-    )
-    parser_x2c.add_argument(
-        "-e", "--encoding", default="utf-8", help="Encoding for output CSV files."
-    )
-
-    args = parser.parse_args()
-
-    def cli_progress_callback(current, total):
-        percentage = (current / total) * 100
-        sys.stdout.write(f"\rProgress: {current}/{total} [{percentage:.0f}%]")
-        sys.stdout.flush()
-
-    try:
-        if args.command == "csv2xlsx":
-            print(f"Converting {len(args.input_files)} CSV files to {args.output}...")
-            converter.csv_to_xlsx(
-                args.input_files, args.output, progress_callback=cli_progress_callback
-            )
-            print("\nConversion successful.")
-        elif args.command == "xlsx2csv":
-            print(f"Converting {args.input_file} to CSV files in {args.output_dir}...")
-            converter.xlsx_to_csv(
-                args.input_file,
-                args.output_dir,
-                encoding=args.encoding,
-                progress_callback=cli_progress_callback,
-            )
-            print("\nConversion successful.")
-    except Exception as e:
-        print(f"\nError: {e}", file=sys.stderr)
-        sys.exit(1)
+def main():
+    """メインエントリーポイント - GUIモードで起動"""
+    app = App()
+    app.mainloop()
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        main_cli()
-    else:
-        app = App()
-        app.mainloop()
+    # CLIはcli.pyから呼び出すため、常にGUIモードで起動
+    main()

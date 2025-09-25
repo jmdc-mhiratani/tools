@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv:*)",
+      "Bash(mkdir:*)",
+      "Bash(python:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pip install:*)",
+      "Bash(dir:*)",
+      "Bash(./CSV2XLSX_v2.0.exe --help)",
+      "Bash(xargs rm:*)",
+      "Bash(tree:*)",
+      "Bash(where python)",
+      "Bash(git tag:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

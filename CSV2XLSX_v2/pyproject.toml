@@ -1,0 +1,33 @@
+# シンプルで実用的なCSV-Excel変換ツール
+# 設計方針: 最小構成、段階的開発 、依存関係の最小化
+[project]
+name = "csv-excel-converter"
+version = "0.2.0"
+
+description = "CSV ⇄ Excel converter with encoding support"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "chardet>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
