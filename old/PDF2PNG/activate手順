@@ -1,1 +1,0 @@
-python -m venv "C:\work\python\PDF2PNG\venv" & "C:\work\python\PDF2PNG\venv\Scripts\Activate.ps1"
