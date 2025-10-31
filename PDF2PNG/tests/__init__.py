@@ -1,1 +1,0 @@
-"""Test suite for PDF2PNG/PDF2PPTX application."""
