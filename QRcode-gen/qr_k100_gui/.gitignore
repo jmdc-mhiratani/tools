@@ -1,0 +1,21 @@
+# ============================================
+# qr_k100_gui (Rust GUI アプリケーション本体)
+# OS / IDE / Claude 系の共通設定はルート .gitignore 参照
+# ============================================
+
+# --- Rust / Cargo ビルド成果物 ---
+/target/
+debug/
+release/
+**/*.rs.bk
+*.pdb
+
+# Cargo.lock はバイナリプロジェクトのため追跡する
+# （ライブラリ化する場合のみコメントアウトを外す）
+# Cargo.lock
+
+# --- テスト出力 / 生成物（fixtures のみ追跡）---
+*.xlsx
+!tests/fixtures/*.xlsx
+*.png
+*.eps

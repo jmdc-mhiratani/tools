@@ -1,0 +1,46 @@
+# ============================================
+# ルート共通の無視設定（各プロジェクトは独自の .gitignore で補完）
+# ============================================
+
+# --- OS 固有 ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- IDE / エディタ ---
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# .vscode は settings.json のみ追跡（プロジェクト共有設定）
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# --- Claude Code / MCP / Serena ---
+.claude/settings.local.json
+.claude/.credentials.json
+.serena/cache/
+.serena/memories/
+
+# --- 一時ファイル / ログ ---
+tmp/
+*.tmp
+*.bak
+*.log
+
+# --- 機密情報 ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/

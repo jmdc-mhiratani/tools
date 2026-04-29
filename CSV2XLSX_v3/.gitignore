@@ -1,0 +1,70 @@
+# ============================================
+# CSV2XLSX_v3 (Python / PySide6 / PyInstaller)
+# OS / IDE / Claude 系の共通設定はルート .gitignore 参照
+# ============================================
+
+# --- Python バイトコード / ビルド成果物 ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- PyInstaller ---
+# *.spec はプロジェクト管理対象のため追跡する
+*.manifest
+
+# --- テスト / カバレッジ / Lint ---
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- 仮想環境 ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- プロジェクト固有 ---
+csv2xlsx.log
+debug_app.log
+output/
+release_package/
+release/
+sample_CSV/
+test_data/
+benchmark_results/
+CSV2XLSX_v*_Source.zip
+CSV2XLSX_v*_Portable.zip
+
+# --- 実行時設定 / 配布物 ---
+config.json
+*.exe
+*.backup

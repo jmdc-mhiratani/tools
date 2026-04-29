@@ -1,0 +1,27 @@
+[package]
+name = "pdf2pptx"
+version = "2.1.0"
+edition = "2021"
+description = "PDF を PNG/PPTX に変換するデスクトップツール"
+
+[dependencies]
+eframe = "0.31"
+pdfium-render = "0.9"
+image = "0.25"
+zip = "2.0"
+quick-xml = "0.37"
+anyhow = "1"
+thiserror = "2"
+opener = "0.7"
+
+[build-dependencies]
+winresource = "0.1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
+codegen-units = 1
+
+[dev-dependencies]
+tempfile = "3.27.0"

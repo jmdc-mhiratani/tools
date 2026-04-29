@@ -1,0 +1,30 @@
+[package]
+name = "qr_k100_gui"
+version = "0.1.0"
+edition = "2021"
+description = "QR Code K100 Generator - Desktop GUI application for generating K100 EPS and PNG QR codes"
+authors = ["QR K100 Team"]
+
+[dependencies]
+# GUI Framework
+egui = "0.31"
+eframe = { version = "0.31", default-features = true }
+
+# QR Code Generation
+qrcode = "0.14"
+image = "0.25"
+
+# File Dialog
+rfd = "0.15"
+
+# Error Handling
+anyhow = "1.0"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.14"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true

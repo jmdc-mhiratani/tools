@@ -1,0 +1,91 @@
+{
+  // ========================================
+  // CSV2XLSX_v3 プロジェクト設定 (PySide6版)
+  // ========================================
+  // GitHub Copilot 設定
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": "../.github/copilot-instructions.md"
+    },
+    {
+      "file": "../.github/instructions/python.instructions.md"
+    },
+    {
+      "file": "CLAUDE.md"
+    }
+  ],
+  // Python 設定
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.formatting.provider": "black",
+  // Pylance 型チェック設定
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.exclude": [
+    "**/build/**",
+    "**/dist/**",
+    "**/.venv/**",
+    "**/__pycache__/**"
+  ],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll.ruff": "explicit"
+    }
+  },
+  // Ruff リンター設定
+  "ruff.enable": true,
+  "ruff.lint.run": "onSave",
+  // Mypy 型チェック（pyproject.tomlで設定、コマンドラインで実行推奨）
+  "python.linting.mypyEnabled": false,
+  // Pytest 設定
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests",
+    "-v"
+  ],
+  // エディタ設定
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    88,
+    120
+  ],
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  // ファイル除外設定
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/*.pyo": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/.ruff_cache": true,
+    "**/.venv": false,
+    "**/build": true,
+    "**/dist": true,
+    "**/*.egg-info": true
+  },
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/.ruff_cache": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/*.egg-info": true
+  },
+  // ターミナル設定
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/src"
+  },
+  "git.ignoreLimitWarning": true
+}

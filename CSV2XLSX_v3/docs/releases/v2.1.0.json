@@ -1,0 +1,31 @@
+{
+  "version": "2.1.0",
+  "release_date": "2025-09-27T20:55:00",
+  "release_name": "CSV2XLSX v2.1 - TkEasyGUI Refactored Edition",
+  "description": "TkEasyGUIリファクタリング版 - モダンアーキテクチャ採用",
+  "features": [
+    "TkEasyGUIによるモダンUI",
+    "モジュラーアーキテクチャ設計",
+    "リアルタイム進捗追跡",
+    "構造化ログシステム",
+    "設定の永続化",
+    "大容量ファイル対応（100MB+）",
+    "自動エンコーディング検出",
+    "バッチ処理機能"
+  ],
+  "system_requirements": {
+    "os": "Windows 10+, macOS 10.14+, Ubuntu 18.04+",
+    "memory": "4GB RAM (8GB recommended)",
+    "storage": "100MB free space",
+    "python": "3.9+ (for source)"
+  },
+  "files": {
+    "portable": "CSV2XLSX_v2.0_Portable.zip",
+    "executable": "release/CSV2XLSX_v2.1.exe",
+    "installer_script": "installer.iss"
+  },
+  "file_sizes": {
+    "executable_mb": "43.8",
+    "portable_zip_mb": "34.4"
+  }
+}
